@@ -3,7 +3,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
-class AddBook extends React.Component {
+
+class BookFormModal extends React.Component {
     render() {
         return (
             <Modal show={this.props.show} onHide={this.props.handleClose}>
@@ -34,15 +35,18 @@ class AddBook extends React.Component {
                             <Form.Select id="state">
                                 <option>Book State</option>
                                 <option value="available">available</option>
-                                <option value="low stock">low stock</option>
+                                <option value="low stock">low in stock</option>
                                 <option value="out of stock">out of stock</option>
                             </Form.Select>
                         </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Add Book
+                        </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" type="submit">
-                        Add Book
+                    <Button variant="secondary" onClick={this.props.handleClose}>
+                        Close
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -50,4 +54,4 @@ class AddBook extends React.Component {
     }
 }
 
-export default AddBook;
+export default BookFormModal;
