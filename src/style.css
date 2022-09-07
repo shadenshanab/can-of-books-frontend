@@ -1,0 +1,23 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navi{
+    color: #B7C4CF;
+    
+}
+.nav-link {
+    margin: 10px;
+  }
+  .fav-book{
+    color: #B7C4CF;
+    margin: 10px;
+  }
+h2{
+    margin: 20px;
+    padding: 10px;
+}
+image{
+    size: 1280 720;
+}
+
