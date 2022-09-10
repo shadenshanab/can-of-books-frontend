@@ -42,7 +42,7 @@ class BestBooks extends React.Component {
 
     console.log(obj);
     axios
-      .post(`http://localhost:3010/addBooks`, obj)
+      .post(`https://can-of.herokuapp.com/addBooks`, obj)
       .then((result) => {
         return this.setState({
           books: result.data,
@@ -58,7 +58,7 @@ class BestBooks extends React.Component {
   deleteBook = (_id) => {
     const { user } = this.props.auth0;
     axios
-      .delete(`http://localhost:3010/deleteBooks/${_id}`)
+      .delete(`https://can-of.herokuapp.com/deleteBooks/${_id}`)
       .then((result) => {
         this.setState({
           books: result.data,
@@ -80,7 +80,7 @@ class BestBooks extends React.Component {
     console.log(obj)
     const id = this.state.currentBooks._id;
     axios
-      .put(`http://localhost:3010/updateBooks/${id}`, obj)
+      .put(`https://can-of.herokuapp.com/updateBooks/${id}`, obj)
       .then(result => {
         this.setState({
           books: result.data
@@ -110,7 +110,7 @@ class BestBooks extends React.Component {
     const { user } = this.props.auth0
 
     axios
-      .get("http://localhost:3010/getBooks")
+      .get(`https://can-of.herokuapp.com/getBooks?name=${user.email}`)
       .then((result) => {
         this.setState({
           books: result.data,
