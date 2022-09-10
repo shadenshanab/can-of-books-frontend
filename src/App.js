@@ -13,6 +13,12 @@ import {
 
 class App extends React.Component {
   render() {
+    
+    const {
+      isAuthenticated,
+      loginWithRedirect,
+  } = useAuth0();
+
     return (
       <>
         <Router>
