@@ -31,13 +31,17 @@ class BestBooks extends React.Component {
     });
   };
 
+
+
   addBook = (event) => {
     event.preventDefault();
     const { user } = this.props.auth0;
     const obj = {
       title: event.target.title.value,
       description: event.target.description.value,
-      state: event.target.state.value
+      state: event.target.state.value,
+      name: user.email
+
     };
 
     console.log(obj);
@@ -58,7 +62,7 @@ class BestBooks extends React.Component {
   deleteBook = (_id) => {
     const { user } = this.props.auth0;
     axios
-      .delete(`https://can-of.herokuapp.com/deleteBooks/${_id}`)
+      .delete(`https://can-of.herokuapp.com/deleteBooks/${_id}?name=${user.email}`)
       .then((result) => {
         this.setState({
           books: result.data,
@@ -72,10 +76,13 @@ class BestBooks extends React.Component {
   
   updateBook = (event) => {
     event.preventDefault();
+    const { user } = this.props.auth0;
     let obj = {
       title: event.target.title.value,
       description: event.target.description.value,
-      status: event.target.status.value
+      status: event.target.status.value,
+      name: user.email
+
     }
     console.log(obj)
     const id = this.state.currentBooks._id;
@@ -136,6 +143,7 @@ class BestBooks extends React.Component {
         <UpdateBookModal
           show={this.state.showFlag}
           handleCloseUpdate={this.handleCloseUpdateModal}
+          handleShowUpdate={this.handleShowUpdateModal}
           updateBook={this.updateBook}
           currentBooks={this.state.currentBooks}
         />
