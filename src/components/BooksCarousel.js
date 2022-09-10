@@ -1,7 +1,6 @@
 import React from 'react';
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import '/home/shaden/can-of-books-frontend/src/style.css'
 
 class BooksCarousel extends React.Component {
     render() {
